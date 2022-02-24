@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package javaapplication11;
-
+import java.util.Scanner;
 /**
  *
  * @author r2kar
@@ -46,10 +46,26 @@ public class JavaApplication11 {
                 break;
      }
     }
+    
+    //isSeason testing if input is season
+    public static boolean isSeason(String season){
+        boolean confirm = false;
+        
+        if(season.equalsIgnoreCase("Winter") ||
+            season.equalsIgnoreCase("Spring")||
+            season.equalsIgnoreCase("Summer")||
+            season.equalsIgnoreCase("Fall")){
+            confirm = true;
+        }
+        
+        return confirm;
+    }
+    
     public static void main(String[] args) {
         // TODO code application logic here
         // try to get the input (myStr) from the user
-        String myStr= "SUMMER";
+        Scanner input = new Scanner(System.in);
+        String myStr= input.nextLine();
         JavaApplication11 test1= new JavaApplication11(Seasons.valueOf(myStr));
         test1.seasonDescription();
         //test1.isSeason();
@@ -61,6 +77,9 @@ public class JavaApplication11 {
             
             System.out.println(mySeason);
         }
+        
+        //prints out the boolean value
+        System.out.println("Is your season valid? " + isSeason(myStr));
        
         }
     }
